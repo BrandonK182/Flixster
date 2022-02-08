@@ -62,14 +62,14 @@ public class movieAdapter extends RecyclerView.Adapter<movieAdapter.ViewHolder> 
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
+
+            Glide.with(context).load("http://via.placeholder.com/300.png").into(ivPoster);
         }
 
         public void bind(movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
             String imageUrl;
-
-            Glide.with(context).load("http://via.placeholder.com/300.png").into(ivPoster);
 
             if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
             {
