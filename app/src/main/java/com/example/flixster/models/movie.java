@@ -3,22 +3,30 @@ package com.example.flixster.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class movie {
 
     String posterPath;
     String title;
     String overview;
     String backdropPath;
+    double rating;
+
+    //empty contructor is needed for parceler
+    public movie(){
+    }
 
     public movie(JSONObject jsonObject) throws JSONException {
         posterPath = jsonObject.getString("poster_path");
         backdropPath = jsonObject.getString("backdrop_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
+        rating = jsonObject.getDouble("vote_average");
     }
 
     public static List<movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
@@ -38,7 +46,7 @@ public class movie {
         this.posterPath = posterPath;
     }
 
-    public String getBackdropath() {
+    public String getBackdroPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
     }
 
@@ -60,5 +68,13 @@ public class movie {
 
     public void setOverview(String overview) {
         this.overview = overview;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 }
