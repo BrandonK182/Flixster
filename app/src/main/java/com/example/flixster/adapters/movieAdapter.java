@@ -24,6 +24,8 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class movieAdapter extends RecyclerView.Adapter<movieAdapter.ViewHolder> {
 
     Context context;
@@ -89,8 +91,11 @@ public class movieAdapter extends RecyclerView.Adapter<movieAdapter.ViewHolder> 
             {
                 imageUrl = movie.getPosterPath();
             }
+            int radius = 30;
+            int margin = 0;
 
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            Glide.with(context).load(imageUrl).centerCrop()
+                    .transform(new RoundedCornersTransformation(radius, margin)).into(ivPoster);
 
             //register click listener
             tvTitle.setOnClickListener(new View.OnClickListener() {
