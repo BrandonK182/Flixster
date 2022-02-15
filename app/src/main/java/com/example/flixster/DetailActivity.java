@@ -30,7 +30,7 @@ public class DetailActivity extends YouTubeBaseActivity {
     YouTubePlayerView youTubePlayerView;
     double rating;
 
-    public static String YoutubeAPI_Key = "AIzaSyA1J4HjAftaV2Z9fcTqcgnU5QF0SV-WJzs";
+    public static String YoutubeAPI_Key = "INSERT API KEY HERE";
     public static String videoURL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
     @Override
